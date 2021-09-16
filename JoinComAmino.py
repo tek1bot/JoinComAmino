@@ -32,6 +32,9 @@ link = input("URL community:")
 
 comId=c.get_from_link(link).comId
 for e in open('emails.txt').read().split():
- c.login(e,password=password)
+ try:
+	c.login(e,password=password)
+except:
+	continue
  c.join_community(comId)
  print(f'joined completed to'+e)
